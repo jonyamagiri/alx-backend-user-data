@@ -64,3 +64,24 @@ def get_db() -> MySQLConnection:
         user=db_username,
         password=db_password
     )
+
+
+def main() -> None:
+    """Main function to fetch and print user information from the database."""
+    db = get_db()
+    with db.cursor() as cursor:
+        cursor.execute("SELECT * FROM users;")
+        field_names = [column[0] for column in cursor.description]
+
+        logger = get_logger()
+
+        for row in cursor:
+            str_row = ''.join(f'{f}={str(r)}; ' for r, f in zip(
+                row, field_names))
+            logger.info(str_row.strip())
+
+    db.close()
+
+
+if __name__ == '__main__':
+    main()
