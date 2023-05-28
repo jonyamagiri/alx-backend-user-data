@@ -2,6 +2,7 @@
 """ module filtered_logger.py """
 
 import re
+import os
 from typing import List
 import logging
 import mysql.connector
