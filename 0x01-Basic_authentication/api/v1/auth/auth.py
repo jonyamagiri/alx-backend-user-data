@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 """ module auth.py to manage the API authentication"""
 
 from flask import request
