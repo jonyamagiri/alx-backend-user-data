@@ -175,3 +175,5 @@ cython_debug/
 __pycache__/
 venv/
 playground/
+*.pyc
+/__pycache__/
