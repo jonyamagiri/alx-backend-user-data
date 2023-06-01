@@ -55,9 +55,9 @@ class BasicAuth(Auth):
         if user_pwd is None or not isinstance(user_pwd, str):
             return None
 
-        # get the list of User objects matching the email
+        # get list of User objects matching the email
         attr = {'email': user_email}
-        user_init = User()  # init the DATA dict if not yet
+        user_init = User()
         user_list = User.search(attr)
 
         user = None
@@ -66,7 +66,7 @@ class BasicAuth(Auth):
                 user = usr
                 break
 
-        return user  # or None
+        return user
 
     def current_user(self, request=None) -> User:
         """Retrieve the User instance for a request."""
