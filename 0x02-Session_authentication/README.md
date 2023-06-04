@@ -1,16 +1,16 @@
-# 0x01. Basic authentication
+# 0x02. Session authentication
 
 
-> This repository contains the tasks for `Basic authentication` project and a description of what each program or function does:
+> This repository contains the tasks for `Session authentication` project and a description of what each program or function does:
 
 
 ## Learning Objectives
 
 	* What authentication means
-	* What Base64 is
-	* How to encode a string in Base64
-	* What Basic authentication means
-	* How to send the Authorization header
+	* What session authentication means
+	* What Cookies are
+	* How to send Cookies
+	* How to parse Cookies
 
 
 * Authentication is the process of verifying the identity of a user or entity attempting to access a system or application. It ensures that the user is who they claim to be before granting access to sensitive information or performing certain actions. In Python, there are several ways to implement authentication:
