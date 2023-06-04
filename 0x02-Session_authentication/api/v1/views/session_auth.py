@@ -1,14 +1,14 @@
 #!/usr/bin/env python3
 """ module that handles all routes for the Session authentication """
 
-from flask import jsonify, request
+from flask import jsonify, request, abort
 from api.v1.views import app_views
 from models.user import User
 from os import getenv
 
 
 @app_views.route('/auth_session/login', methods=['POST'], strict_slashes=False)
-def session_login():
+def session_login() -> str:
     """Handles the login route for Session authentication."""
     email = request.form.get('email')
     password = request.form.get('password')
@@ -32,3 +32,14 @@ def session_login():
             return user_json
         else:
             return jsonify({"error": "wrong password"}), 401
+
+
+@app_views.route('/auth_session/logout', methods=['DELETE'],
+                 strict_slashes=False)
+def session_logout():
+    """Handles the logout route for Session authentication."""
+    from api.v1.app import auth
+    if not auth.destroy_session(request):
+        abort(404)
+
+    return jsonify({}), 200
