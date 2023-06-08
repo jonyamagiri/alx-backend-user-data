@@ -48,3 +48,17 @@ class DB:
         if not user:
             raise NoResultFound
         return user
+
+    def update_user(self, user_id: int, **kwargs) -> None:
+        """Update a user's attributes based on the provided arguments"""
+        user = self.find_user_by(id=user_id)
+        if not user:
+            raise NoResultFound
+
+        allowed_attributes = User.__table__.columns.keys()
+        for attr in kwargs:
+            if attr not in allowed_attributes:
+                raise ValueError
+            setattr(user, attr, kwargs[attr])
+
+        self._session.commit()
