@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" module that defines a SQLAlchemy model User """
+""" module that defines SQLAlchemy model User """
 
 
 from sqlalchemy import Column, Integer, String
