@@ -13,3 +13,5 @@ print(user_1.id)
 
 user_2 = my_db.add_user("test1@test.com", "SuperHashedPwd1")
 print(user_2.id)
+
+my_db.close_session()

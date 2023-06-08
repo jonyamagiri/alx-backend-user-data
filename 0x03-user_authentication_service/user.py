@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 """ module that defines SQLAlchemy model User """
 
-
 from sqlalchemy import Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 

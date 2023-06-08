@@ -1,11 +1,13 @@
+#!/usr/bin/env python3
+"""DB module
+"""
+
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy.orm.session import Session
 
 from user import Base, User
-import sqlalchemy
-import bcrypt
 
 
 class DB:
@@ -25,6 +27,12 @@ class DB:
             DBSession = sessionmaker(bind=self._engine)
             self.__session = DBSession()
         return self.__session
+
+    def close_session(self) -> None:
+        """Close the session"""
+        if self.__session is not None:
+            self.__session.close()
+            self.__session = None
 
     def add_user(self, email: str, hashed_password: str) -> User:
         """Add a user to the database"""
