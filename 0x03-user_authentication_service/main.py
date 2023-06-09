@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-""" End-to-end integration tests for the user_authentication_service module"""
+""" End-to-end integration tests for the user_authentication_service module """
 
 import requests
 
